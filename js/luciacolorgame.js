@@ -15,7 +15,6 @@ var LuciaColorGame = (function() {
 
     /****************
      * working vars */
-    var canvas, ctx;
     var currAns;
     var numCorrect;
     var numAttempts;
@@ -26,8 +25,32 @@ var LuciaColorGame = (function() {
     /******************
      * work functions */
     function initLuciaColorGame() {
+      currAns = -1;
       numCorrect = 0;
       numAttempts = 0;
+
+      $s('#left').addEventListener('click', function() {
+        handleGuess(0); 
+      });
+
+      $s('#right').addEventListener('click', function() {
+        handleGuess(1); 
+      });
+
+      $s('#stats-btn').addEventListener('click', function() {
+        $s('#stats-val').innerHTML = numCorrect;
+      });
+
+      advanceRound();
+    }
+
+    function handleGuess(idx) {
+      numAttempts += 1;
+      $s('#stats-val').innerHTML = '??';
+      $s('#count').innerHTML = numAttempts;
+
+      if (currAns === idx) numCorrect += 1;
+
       advanceRound();
     }
 
@@ -39,17 +62,17 @@ var LuciaColorGame = (function() {
     }
 
     function getRandomColors() {
+      var color0 = [0, 0, 0];
       var color1 = [0, 0, 0];
-      var color2 = [0, 0, 0];
       var index = Math.floor(color1.length * Math.random());
       var val = Math.floor((256 - COLOR_DIFF) * Math.random());
-      color1[index] = val;
-      color2[index] = val + COLOR_DIFF;
+      color0[index] = val;
+      color1[index] = val + COLOR_DIFF;
 
       if (Math.random() < 0.5) {
-        return [color1, color2].map(getColor);
+        return [color0, color1].map(getColor).concat([0]);
       } else {
-        return [color2, color1].map(getColor);
+        return [color1, color0].map(getColor).concat([1]);
       }
     }
 
