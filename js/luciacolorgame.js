@@ -1,7 +1,7 @@
 /******************\
 | Lucia Color Game |
 | @author Anthony  |
-| @version 1.0     |
+| @version 1.0.1   |
 | @date 2016/06/02 |
 | @edit 2016/06/02 |
 \******************/
