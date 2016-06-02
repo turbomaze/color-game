@@ -11,7 +11,13 @@ var LuciaColorGame = (function() {
 
     /**********
      * config */
-    var COLOR_DIFF = 100;
+    var COLOR_DIFF = 1;
+    if (window.location.hash.length > 1) {
+      var hash = parseInt(window.location.hash.substring(1));
+      if (hash > 0) {
+        COLOR_DIFF = hash;
+      }
+    }
 
     /****************
      * working vars */
