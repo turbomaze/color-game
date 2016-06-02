@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Lucia Color Game</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"/>
+
+        <script src="js/luciacolorgame.js"></script>
+
+        <style>
+        .container {
+          margin: 0 auto;
+        }
+
+        .col {
+          float: left;
+          margin-bottom: 20px;
+        }
+
+        .color-square {
+          width: 230px;
+          height: 230px;
+        }
+
+        .color-square#c1 {
+          margin-right: 20px;
+        }
+
+        input#left {
+          margin-right: 20px;
+        }
+
+        input {
+          width: 230px; 
+        }
+
+        #stats {
+          margin-left: 20px;
+        }
+
+        br {
+          clear: both;
+        }
+        </style>
+    </head>
+    <body>
+      <div class="container">
+        <h2>Which color is darker?</h2>
+
+        <div class="col">
+          <div class="color-square" id="c1"></div>
+          <input id="left" type="button" value="This one">
+        </div>
+        <div class="col">
+          <div class="color-square" id="c2"></div>
+          <input id="right" type="button" value="No, this one">
+        </div>
+
+        <br><br>
+
+        <input id="stats-btn" type="button" value="No, this one">
+        <span id="stats">You were correct 27 of 81 tries.</span>
+
+      </div>
+
+    </body>
+</html>
